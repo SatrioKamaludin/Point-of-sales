@@ -6,8 +6,8 @@ const Head = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #4abad1;
-    color: white;
+    background: ${props => props.theme.primary};
+    color: ${props => props.theme.light};
 `
 
 const Header = () => {
