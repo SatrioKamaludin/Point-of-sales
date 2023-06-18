@@ -17,7 +17,7 @@ const NamePrice = styled.div`
     justify-content: space-between;
 `
 
-const ProductCard = ({item}) => {
+const ProductCard = ({ item }) => {
     return (
         <Card>
             <CardImg src={item.image} alt={item.name} />

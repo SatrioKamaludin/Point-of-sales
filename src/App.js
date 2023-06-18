@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import * as theme from './styled/theme'
 import ProductCard from './components/ProductCard'
 import { useSelector } from 'react-redux'
+import CartItem from './components/CartItem'
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const ProductContainer = styled.div`
   height: 100%;
   background: ${props => props.theme.light};
   border-left: 1px solid #f7f7f7;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -30,7 +31,7 @@ const ProductContainer = styled.div`
 
 const CartContainer = styled.div`
    width: 25%;
-   padding: 0.5rem 0;
+   padding: 0.5rem 0.5rem;
 `
 
 const App = () => {
@@ -48,7 +49,9 @@ const App = () => {
             />
           )}
         </ProductContainer>
-        <CartContainer>Cart</CartContainer>
+        <CartContainer>
+          <CartItem />
+        </CartContainer>
       </Container>
     </ThemeProvider>
   )
