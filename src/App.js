@@ -5,6 +5,7 @@ import * as theme from './styled/theme'
 import ProductCard from './components/ProductCard'
 import { useSelector } from 'react-redux'
 import CartItem from './components/CartItem'
+import ListMenu from './components/ListMenu'
 
 const Container = styled.div`
   display: flex;
@@ -40,7 +41,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Header />
       <Container>
-        <MenuContainer>Menu</MenuContainer>
+        <MenuContainer>
+          <ListMenu />
+        </MenuContainer>
         <ProductContainer>
           {products.map(product =>
             <ProductCard
