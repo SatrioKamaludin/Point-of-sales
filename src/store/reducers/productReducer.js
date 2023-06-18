@@ -22,6 +22,39 @@ const productReducer = (state = initialState, action) => {
             } else {
                 return state
             }
+        case 'INCREMENT':
+            const incPrice = state.products.find(item => item.id === payload).price
+            const incCarts = state.carts.map(item => {
+                if (item.id === payload) {
+                    return {
+                        ...item,
+                        price: item.price + incPrice
+                    }
+                } else {
+                    return item
+                }
+            })
+            return {
+                ...state,
+                carts: incCarts
+            }
+        case 'DECREMENT':
+            const decPrice = state.products.find(item => item.id === payload).price
+            const decCarts = state.carts.map(item => {
+                if (item.id === payload) {
+                    return {
+                        ...item,
+                        price: item.price - decPrice
+                    }
+                } else {
+                    return item
+                }
+            })
+            return {
+                ...state,
+                carts: decCarts
+            }
+
     }
 }
 
