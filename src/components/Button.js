@@ -18,13 +18,14 @@ const PrimaryButton = styled(MyButton)`
     background: ${props => props.theme.primary}
 `
 
+
 const WarningButton = styled(MyButton)`
     background: ${props => props.theme.tertiary}
 `
 
-const Button = ({ primary }) => {
+const Button = ({ primary, action }) => {
     if (primary) {
-        return <PrimaryButton>Finished</PrimaryButton>
+        return <PrimaryButton onClick={action}>Finished</PrimaryButton>
     } else {
         return <WarningButton>Cancel</WarningButton>
     }
