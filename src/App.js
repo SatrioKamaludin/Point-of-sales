@@ -6,6 +6,7 @@ import ProductCard from './components/ProductCard'
 import { useSelector } from 'react-redux'
 import CartItem from './components/CartItem'
 import ListMenu from './components/ListMenu'
+import CalculateBox from './components/CalculateBox'
 
 const Container = styled.div`
   display: flex;
@@ -54,6 +55,7 @@ const App = () => {
         </ProductContainer>
         <CartContainer>
           <CartItem />
+          <CalculateBox />
         </CartContainer>
       </Container>
     </ThemeProvider>
