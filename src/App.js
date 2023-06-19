@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header'
 import styled, { ThemeProvider } from 'styled-components'
 import * as theme from './styled/theme'
@@ -38,21 +38,26 @@ const CartContainer = styled.div`
 
 const App = () => {
   const products = useSelector(state => state.product.products)
+
   const carts = useSelector(state => state.product.carts)
+
+  const [selectedCategory, setSelectedCategory] = useState(null)
+
+  const filteredProducts = selectedCategory
+    ? products.filter(product => product.category.toLowerCase() === selectedCategory)
+    : products
+
   return (
     <ThemeProvider theme={theme}>
       <Header />
       <Container>
         <MenuContainer>
-          <ListMenu />
+          <ListMenu setSelectedCategory={setSelectedCategory} />
         </MenuContainer>
         <ProductContainer>
-          {products.map(product =>
-            <ProductCard
-              key={product.id}
-              item={product}
-            />
-          )}
+          {filteredProducts.map(product => (
+            <ProductCard key={product.id} item={product} />
+          ))}
         </ProductContainer>
         <CartContainer>
           <p>{carts ? `${carts.length} item(s) in cart` : `0 item in cart`}</p>

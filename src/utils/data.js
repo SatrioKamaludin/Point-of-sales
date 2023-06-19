@@ -103,5 +103,40 @@ export const products = [
         image: require("../assets/foods/makanan5.png"),
         category: "makanan",
         price: 12000
+    },
+    {
+        id: 16,
+        name: "Oolong Tea",
+        image: require("../assets/drinks/minuman1.jpg"),
+        category: "minuman",
+        price: 13000
+    },
+    {
+        id: 17,
+        name: "Barley Tea",
+        image: require("../assets/drinks/minuman2.jpg"),
+        category: "minuman",
+        price: 14000
+    },
+    {
+        id: 18,
+        name: "Green Tea",
+        image: require("../assets/drinks/minuman3.jpg"),
+        category: "minuman",
+        price: 12000
+    },
+    {
+        id: 19,
+        name: "Avocado Smoothie",
+        image: require("../assets/drinks/minuman4.jpg"),
+        category: "minuman",
+        price: 15000
+    },
+    {
+        id: 20,
+        name: "Cappucino",
+        image: require("../assets/drinks/minuman5.jpg"),
+        category: "minuman",
+        price: 12000
     }
 ]

@@ -19,11 +19,22 @@ const Menu = styled.li`
 `
 
 const ListMenu = () => {
+    const [selectedCategory, setSelectedCategory] = useState(null)
+
     const [menu] = useState(['Favourites', 'Foods', 'Drinks', 'Snacks'])
+
+    const handleMenuClick = (category) => {
+        setSelectedCategory(category);
+    }
+    
     return (
         <ul>
             {menu.map((item, index) =>
-                <Menu key={index}>
+                <Menu
+                    key={index}
+                    onClick={() => handleMenuClick(item.toLowerCase())}
+                    className={selectedCategory === item.toLowerCase() ? 'active' : ''}
+                >
                     {item}
                 </Menu>
             )}

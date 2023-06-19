@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { addCart } from '../store/actions/product'
@@ -35,14 +35,25 @@ const ProductCard = ({ item }) => {
             dispatch(addCart(id));
         }
     }
+
+    const [selectedCategory, setSelectedCategory] = useState(null)
+
+    const filteredProducts = selectedCategory
+        ? item.category.toLowerCase() === selectedCategory
+        : true;
+
     return (
-        <Card onClick={() => addToCart(item.id)}>
-            <CardImg src={item.image} alt={item.name} />
-            <NamePrice>
-                <p>{item.name}</p>
-                <p>{item.price}</p>
-            </NamePrice>
-        </Card>
+        <>
+            {filteredProducts && (
+                <Card onClick={() => addToCart(item.id)}>
+                    <CardImg src={item.image} alt={item.name} />
+                    <NamePrice>
+                        <p>{item.name}</p>
+                        <p>{item.price}</p>
+                    </NamePrice>
+                </Card>
+            )}
+        </>
     )
 }
 
