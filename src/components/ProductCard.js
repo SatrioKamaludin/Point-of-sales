@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { addCart } from '../store/actions/product'
 
@@ -20,9 +20,20 @@ const NamePrice = styled.div`
 `
 
 const ProductCard = ({ item }) => {
+
     const dispatch = useDispatch()
+
+    const cartItems = useSelector((state) => state.product.carts);
+
     const addToCart = id => {
-        dispatch(addCart(id))
+        const itemInCart = cartItems.find((item) => item.id === id)
+        if (itemInCart) {
+            // Display a warning that the item is already in the cart
+            alert('This item is already in your cart!');
+        } else {
+            // Dispatch the addCart action if the item is not in the cart
+            dispatch(addCart(id));
+        }
     }
     return (
         <Card onClick={() => addToCart(item.id)}>
